@@ -1,0 +1,13 @@
+stages:
+  - compile
+  - test
+  - deploy
+
+compile:
+  script: "mvn compile"
+
+test:
+  script: "mvn test"
+
+deploy:
+  script: "mvn package; export PORT=5000; sh target/bin/simplewebapp"
