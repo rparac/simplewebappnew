@@ -13,4 +13,4 @@ deploy:
   script: 
     - export PORT=5000
     - mvn package
-    - sh target/bin/simplewebapp &> dev/null &
+    - sh target/bin/simplewebapp &> /dev/null &
