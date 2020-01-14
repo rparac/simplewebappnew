@@ -35,7 +35,8 @@ public class WebServer {
             }  else {
                 String result = new QueryProcessor().process(query);
                 if (button.equals("markdown")) {
-                    new MarkdownResultPage(query, result).writeTo(resp);
+                    new MarkdownResultPage(query, result
+                    ).writeTo(resp);
                 } else {
                     new HTMLResultPage(query, result).writeTo(resp);
                 }
