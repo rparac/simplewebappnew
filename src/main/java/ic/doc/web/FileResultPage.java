@@ -21,7 +21,7 @@ public class FileResultPage implements Page {
 
     @Override
     public void writeTo(HttpServletResponse resp) throws IOException {
-        resp.setContentType("text/markdown");
+        resp.setContentType(creator.getContentType());
 
         if (answer != null && query != null) {
             File file = creator.createFile(query, answer);

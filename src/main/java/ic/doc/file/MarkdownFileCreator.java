@@ -15,4 +15,9 @@ public class MarkdownFileCreator implements FileCreator {
 
     return file;
   }
+
+  @Override
+  public String getContentType() {
+    return "text/markdown";
+  }
 }

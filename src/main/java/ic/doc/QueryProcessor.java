@@ -26,12 +26,11 @@ public class QueryProcessor {
         }
 
         if (query.toLowerCase().contains("milo")) {
-            results.append("Milo Đukanović (Serbian Cyrillic: Мило Ђукановић); born 15 February 1962) \n" +
-                           "is a Montenegrin politician who has been the President of Montenegro since \n" +
-                           "20 May 2018. He served as Prime Minister of Montenegro in three governments \n" +
-                           "from 1991 to 1998, as the President of Montenegro from 1998 to 2002, and as\n" +
-                           "Prime Minister again from 2003 to 2006, from 2008 to 2010, and from 2012 to \n" +
-                           "2016");
+            results.append("Milo Đukanović (born 15 February 1962) is a Montenegrin politician who\n" +
+                           "has been the President of Montenegro since 20 May 2018. He served as Prime\n" +
+                           "Minister of Montenegro in three governments from 1991 to 1998, as the\n" +
+                           "President of Montenegro from 1998 to 2002, and as Prime Minister again\n" +
+                           "from 2003 to 2006, from 2008 to 2010, and from 2012 to 2016\n");
         }
 
         return results.toString();

@@ -5,4 +5,6 @@ import java.io.IOException;
 
 public interface FileCreator {
   File createFile(String name, String content) throws IOException;
+
+  String getContentType();
 }
