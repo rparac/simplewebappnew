@@ -7,16 +7,18 @@ public class PdfFileCreator implements FileCreator {
   @Override
   public File createFile(String name, String content) throws IOException {
     MarkdownFileCreator markdownFileCreator = new MarkdownFileCreator();
-    markdownFileCreator.createFile(name, content);
+    File tempFile = markdownFileCreator.createFile(name, content);
 
-    createPdfPandoc(name);
+    createPdfPandoc(name, tempFile);
 
     return new File(name + ".pdf");
   }
 
-  private void createPdfPandoc(String name) throws IOException {
+  private void createPdfPandoc(String name, File tempFile) throws IOException {
+    String fileLocation = tempFile.toString();
+
     Process pdfProc = new ProcessBuilder()
-        .command("pandoc", name + ".tmp", "-o", name + ".pdf")
+        .command("pandoc", fileLocation, "-o", name + ".pdf")
         .start();
 
     int exitCode = 1;
@@ -27,7 +29,8 @@ public class PdfFileCreator implements FileCreator {
     }
 
     if (exitCode != 0) {
-      throw new RuntimeException("The pdf was not made gracefully");
+      throw new RuntimeException("The pdf was not made gracefully" + fileLocation + " "
+                                + exitCode + " " + name);
     }
   }
 }

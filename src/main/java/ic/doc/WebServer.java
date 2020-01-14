@@ -1,6 +1,7 @@
 package ic.doc;
 
 import ic.doc.file.MarkdownFileCreator;
+import ic.doc.file.PdfFileCreator;
 import ic.doc.web.HTMLResultPage;
 import ic.doc.web.IndexPage;
 import ic.doc.web.FileResultPage;
@@ -35,14 +36,18 @@ public class WebServer {
                 new IndexPage().writeTo(resp);
             }  else {
                 String result = new QueryProcessor().process(query);
-                if (button.equals("markdown")) {
-                    new FileResultPage(query, result,
-                                       new MarkdownFileCreator()).writeTo(resp);
-                } else if (button.equals("pdf")) {
-                    new FileResultPage(query, result,
-                                       new MarkdownFileCreator()).writeTo(resp);
-                } else {
-                    new HTMLResultPage(query, result).writeTo(resp);
+                switch (button) {
+                    case "markdown":
+                        new FileResultPage(query, result,
+                            new MarkdownFileCreator()).writeTo(resp);
+                        break;
+                    case "pdf":
+                        new FileResultPage(query, result,
+                            new PdfFileCreator()).writeTo(resp);
+                        break;
+                    default:
+                        new HTMLResultPage(query, result).writeTo(resp);
+                        break;
                 }
             }
         }

@@ -8,7 +8,7 @@ public class MarkdownFileCreator implements FileCreator {
 
   @Override
   public File createFile(String name, String content) throws IOException {
-    File file = File.createTempFile(content, ".tmp");
+    File file = File.createTempFile(name, ".tmp");
     FileWriter fileWriter = new FileWriter(file);
     fileWriter.write(content);
     fileWriter.close();
