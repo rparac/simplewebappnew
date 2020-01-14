@@ -1,6 +1,7 @@
 package ic.doc.web;
 
 import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -38,4 +39,6 @@ public class HTMLResultPage implements Page {
         writer.println("</body>");
         writer.println("</html>");
     }
+
+
 }
