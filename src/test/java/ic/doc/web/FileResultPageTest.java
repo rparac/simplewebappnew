@@ -1,5 +1,7 @@
 package ic.doc.web;
 
+import ic.doc.file.FileCreator;
+import ic.doc.file.MarkdownFileCreator;
 import org.jmock.Expectations;
 import org.jmock.integration.junit4.JUnitRuleMockery;
 import org.junit.Rule;
@@ -9,17 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-public class MarkdownResultPageTest {
+public class FileResultPageTest {
   @Rule
   public JUnitRuleMockery context = new JUnitRuleMockery();
 
   HttpServletResponse response = context.mock(HttpServletResponse.class);
+  FileCreator fileCreator = new MarkdownFileCreator();
 
   @Test
   public void doesNotWriteResponseWhenQueryResultIsNull() throws IOException {
     checkNoOccurrenceOfResponse();
 
-    MarkdownResultPage page = new MarkdownResultPage("mark", null);
+    FileResultPage page = new FileResultPage("mark", null,
+                                             fileCreator);
     page.writeTo(response);
   }
 
@@ -27,7 +31,8 @@ public class MarkdownResultPageTest {
   public void doesNotWriteResponseWhenQueryIsNull() throws IOException {
     checkNoOccurrenceOfResponse();
 
-    MarkdownResultPage page = new MarkdownResultPage(null, "afs");
+    FileResultPage page = new FileResultPage(null, "afs",
+                                             fileCreator);
     page.writeTo(response);
   }
 
@@ -38,7 +43,8 @@ public class MarkdownResultPageTest {
      ignoring(response);
    }});
 
-   MarkdownResultPage page = new MarkdownResultPage(null, null);
+   FileResultPage page = new FileResultPage(null, null,
+                                            fileCreator);
    page.writeTo(response);
   }
 

@@ -1,7 +1,6 @@
 package ic.doc.web;
 
 import ic.doc.file.FileCreator;
-import ic.doc.file.MarkdownFileCreator;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
@@ -9,19 +8,15 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class MarkdownResultPage implements Page {
+public class FileResultPage implements Page {
     private final String query;
     private final String answer;
     private final FileCreator creator;
 
-    public MarkdownResultPage(String query, String answer) {
-        this(query, answer, new MarkdownFileCreator());
-    }
-
-    public MarkdownResultPage(String query, String answer, FileCreator creator) {
+    public FileResultPage(String query, String answer, FileCreator creator) {
         this.query = query;
         this.answer = answer;
-        this.creator = new MarkdownFileCreator();
+        this.creator = creator;
     }
 
     @Override
