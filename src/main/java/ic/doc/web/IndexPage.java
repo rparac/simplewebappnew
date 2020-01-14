@@ -23,6 +23,7 @@ public class IndexPage implements Page {
                         "<input type=\"text\" name=\"q\"> <br>" +
                         "<input type=\"radio\" name=\"button\" value=\"html\" checked> html<br>" +
                         "<input type=\"radio\" name=\"button\" value=\"markdown\"> markdown<br>" +
+                        "<input type=\"radio\" name=\"button\" value=\"pdf\"> pdf<br>" +
                         "<input type=\"submit\">" +
                         "</form>" +
                         "</p>");

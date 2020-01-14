@@ -15,6 +15,10 @@ public class MarkdownResultPage implements Page {
     private final FileCreator creator;
 
     public MarkdownResultPage(String query, String answer) {
+        this(query, answer, new MarkdownFileCreator());
+    }
+
+    public MarkdownResultPage(String query, String answer, FileCreator creator) {
         this.query = query;
         this.answer = answer;
         this.creator = new MarkdownFileCreator();
