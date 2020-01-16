@@ -4,12 +4,15 @@ stages:
   - deploy
 
 compile:
+  stage: compile
   script: mvn compile
 
 test:
+  stage: test
   script: mvn test
 
 deploy:
+  stage: deploy
   script: 
     - export PORT=5000
     - mvn package
