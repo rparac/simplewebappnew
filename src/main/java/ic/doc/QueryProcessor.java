@@ -19,14 +19,14 @@ public class QueryProcessor {
         }
 
         if (query.toLowerCase().contains("twain")) {
-            results.append("Samuel Langhorne Clemens (November 30, 1835 – April 21, 1910)\n" +
+            results.append("Samuel Langhorne Clemens (November 30, 1835 to April 21, 1910)\n" +
                            ",[1] known by his pen name Mark Twain, was an American writer, \n" +
                            "humorist, entrepreneur, publisher, and lecturer. He was lauded as \n" +
                            "the \"greatest humorist this country has produced\"");
         }
 
         if (query.toLowerCase().contains("milo")) {
-            results.append("Milo Đukanović (born 15 February 1962) is a Montenegrin politician who\n" +
+            results.append("Milo Djukanovic (born 15 February 1962) is a Montenegrin politician who\n" +
                            "has been the President of Montenegro since 20 May 2018. He served as Prime\n" +
                            "Minister of Montenegro in three governments from 1991 to 1998, as the\n" +
                            "President of Montenegro from 1998 to 2002, and as Prime Minister again\n" +
