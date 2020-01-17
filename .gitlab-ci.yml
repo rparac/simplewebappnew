@@ -11,7 +11,7 @@ default:
     - apt -y install pandoc
     - apt-get -y install maven
     - apt-get -y install openjdk-11-jre openjdk-11-jdk
-		- gem install dpl
+    - gem install dpl
  
 compile:
   stage: compile
