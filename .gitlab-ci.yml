@@ -28,4 +28,5 @@ deploy:
     - sh target/bin/simplewebapp &> /dev/null &
     - apt -y install ruby
     - gem install --user-install dpl-heroku
+    - gem install dpl
     - dpl --provider=heroku --app=rp218-simplewebapp --api-key=43b796c8-8edb-4469-8d21-9c727720367a
