@@ -4,13 +4,11 @@ stages:
   - deploy
 
 default:
-  image: ubuntu:18.04
+  image: maven:3.6.3-jdk-11-openj9
   before_script:
     - apt-get update
     - apt-get -y install texlive
     - apt -y install pandoc
-    - apt-get -y install maven
-    - apt-get -y install openjdk-11-jre openjdk-11-jdk
  
 compile:
   stage: compile
