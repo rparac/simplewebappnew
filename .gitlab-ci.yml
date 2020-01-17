@@ -11,8 +11,6 @@ default:
     - apt -y install pandoc
     - apt-get -y install maven
     - apt-get -y install openjdk-11-jre openjdk-11-jdk
-    - apt-get -y install ruby-dev
-    - gem install dpl
  
 compile:
   stage: compile
@@ -28,4 +26,6 @@ deploy:
     - export PORT=5000
     - mvn package
     - sh target/bin/simplewebapp &> /dev/null &
+    - apt -y install ruby
+    - gem install --user-install dpl-heroku
     - dpl --provider=heroku --app=rp218-simplewebapp --api-key=43b796c8-8edb-4469-8d21-9c727720367a
