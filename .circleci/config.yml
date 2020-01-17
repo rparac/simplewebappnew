@@ -32,12 +32,12 @@ jobs:
 workflows:
 jobs:
   - pre_install
-  - compile
+  - compile:
       requires:
         - pre_install
-  - test
+  - test:
       requires:
         - compile
-  - deploy
+  - deploy:
       requires:
         - test
