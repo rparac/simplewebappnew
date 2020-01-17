@@ -30,4 +30,5 @@ deploy:
     - gem install --user-install dpl-heroku
     - gem install dpl
     - apt -y install git
+    - apt -y install curl
     - dpl --provider=heroku --app=rp218-simplewebapp --api-key=43b796c8-8edb-4469-8d21-9c727720367a
