@@ -4,16 +4,14 @@ stages:
   - deploy
 
 default:
-	image: ubuntu:18.04
-	before_script:
-		- apt-get update
-		- apt-get -y install texlive
-		- apt -y install pandoc
-		- apt-get -y install maven
-		- apt-get -y install openjdk-11-jre openjdk-11-jdk
+  image: ubuntu:18.04
+  before_script:
+    - apt-get update
+    - apt-get -y install texlive
+    - apt -y install pandoc
+    - apt-get -y install maven
+    - apt-get -y install openjdk-11-jre openjdk-11-jdk
  
-
-
 compile:
   stage: compile
   script: mvn compile
@@ -29,4 +27,3 @@ deploy:
     - mvn package
     - sh target/bin/simplewebapp &> /dev/null &
     - dpl --provider=heroku --app=rp218-simplewebapp --api-key=43b796c8-8edb-4469-8d21-9c727720367a
-
