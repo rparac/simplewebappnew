@@ -5,7 +5,7 @@ jobs:
       - image: maven:3.6.3-jdk-11-openj9
     steps:
       - checkout
-			- run: apt-get update && \
+      - run: apt-get update && \
 						 apt-get -y install texlive && \
 						 apt -y install pandoc
   compile:
