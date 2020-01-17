@@ -6,8 +6,8 @@ jobs:
     steps:
       - checkout
       - run: apt-get update && \
-						 apt-get -y install texlive && \
-						 apt -y install pandoc
+             apt-get -y install texlive && \
+             apt -y install pandoc
   compile:
     steps:
       - run: mvn compile
