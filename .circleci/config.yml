@@ -30,14 +30,15 @@ jobs:
              dpl --provider=heroku --app=rp218-simplewebapp --api-key=43b796c8-8edb-4469-8d21-9c727720367a
 
 workflows:
-jobs:
-  - pre_install
-  - compile:
-      requires:
-        - pre_install
-  - test:
-      requires:
-        - compile
-  - deploy:
-      requires:
-        - test
+   version: 2
+   jobs:
+     - pre_install
+     - compile:
+         requires:
+           - pre_install
+     - test:
+         requires:
+           - compile
+     - deploy:
+         requires:
+           - test
