@@ -1,0 +1,41 @@
+version: 2.0
+
+jobs:
+  compile:
+    docker:
+      - image: maven:3.6.3-jdk-11-openj9
+    steps:
+      - run: apt-get update
+      - run: apt-get install -y texlive
+      - run: apt-get install -y pandoc
+      - run: mvn compile
+
+  test:
+    steps:
+      - run: mvn test
+
+  deploy:
+    steps:
+      - run: export PORT=5000
+      - run: mvn clean package
+      - run: sh target/bin/simplewebapp &> /dev/null &
+      - run: apt install -y git
+      - run: apt install -y curl
+      - run: apt install -y ruby
+      - run: gem install --user-install dpl-heroku
+      - run: gem instal dpl
+      - run: dpl --provider=heroku --app=rp218-simplewebapp --api-key=43b796c8-8edb-4469-8d21-9c727720367a
+
+workflows:
+  version: 2
+  build_test_deploy:
+    jobs:
+      - compile
+      - test:
+          requires:
+            - compile
+      - deploy:
+          requires:
+            - compile
+            - deploy
+
