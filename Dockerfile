@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM maven:3.6.3-jdk-11-openj9
 
 RUN apt-get update
 
@@ -7,9 +7,6 @@ RUN apt-get -y install texlive
 
 # install pandoc
 RUN apt -y install pandoc
-
-RUN apt-get -y install maven
-RUN apt-get -y install openjdk-11-jre openjdk-11-jdk
 
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
